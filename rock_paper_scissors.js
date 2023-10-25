@@ -16,7 +16,24 @@ function getComputerChoice (min, max) {
 
 }
 
-console.log (getComputerChoice(1, 3));
+getComputerChoice(1, 3);
+
+//Create a similar function for the player
+
+function getPlayerChoice () {
+    const playerChoice = prompt ("Rock, Paper, or Scissors?");
+    
+    if (playerChoice === "Rock" ) {
+        return "Rock";
+    }
+    if (playerChoice === "Paper") {
+        return "Paper";
+    }
+    if (playerChoice === "Scissors") {
+        return "Scissors";
+    }
+}
+getPlayerChoice();
 
 /* Write a function that plays a single round of Rock Paper Scissors. 
 The function should take two parameters - the playerSelection and computerSelection - 
@@ -54,6 +71,6 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-console.log (playRound("Rock", getComputerChoice(1, 3)));
+playRound(getPlayerChoice(), getComputerChoice(1, 3));
 
 

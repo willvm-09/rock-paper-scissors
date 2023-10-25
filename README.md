@@ -22,3 +22,8 @@ The second part involves writing a function that plays a single round of Rock Pa
 The function should take two parameters - the playerSelection and computerSelection - 
 and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock". 
 After several tries I finally managed to write code that worked. I tested it on the browser's console and confirmed this. 
+
+The third part involved writing code that asks the user for input. The result is then used to play one round of the game. 
+This allowed me to write a function called "getPlayerChoice" that prompts the user for a response first before the computer takes its pick. 
+
+
