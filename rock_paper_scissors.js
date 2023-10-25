@@ -26,11 +26,14 @@ function getPlayerChoice () {
     if (playerChoice.toLowerCase() === "rock" ) {
         return "Rock";
     }
-    if (playerChoice.toLowerCase() === "paper") {
+    else if (playerChoice.toLowerCase() === "paper") {
         return "Paper";
     }
-    if (playerChoice.toLowerCase() === "scissors") {
+    else if (playerChoice.toLowerCase() === "scissors") {
         return "Scissors";
+    } 
+    else {
+        return "You must type either Rock, Paper or Scissors"
     }
 }
 getPlayerChoice();
@@ -42,32 +45,45 @@ Make your function’s playerSelection parameter case-insensitive (so users can 
 
 function playRound (playerSelection, computerSelection) {
 
+    let computerScore = 0;
+    let playerScore = 0;
+    let tieScore = 0;
+
     if (playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") {
-        return "You both picked Rock, it's a tie!"
+        return "You both picked Rock, it's a tie!";
+        tieScore++;
     }
-    if (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
-        return "You both picked Paper, it's a tie!"
+    else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
+        return "You both picked Paper, it's a tie!";
+        tieScore++;
     }
-    if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") {
-        return "You both picked Scissors, it's a tie!"
+    else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") {
+        return "You both picked Scissors, it's a tie!";
+        tieScore++;
     }
-    if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
-        return "You lose! Paper beats Rock."
+    else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
+        return "You lose! Paper beats Rock.";
+        computerScore++;
     }
-    if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
-        return "You win! Rock beats Scissors."
+    else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
+        return "You win! Rock beats Scissors.";
+        playerScore++;
     }
-    if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
-        return "You win! Paper beats Rock."
+    else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
+        return "You win! Paper beats Rock.";
+        playerScore++;
     }
-    if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
-        return "You lose! Scissors beats Paper."
+    else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
+        return "You lose! Scissors beats Paper.";
+        computerScore++;
     }
-    if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
+    else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
         return "You lose! Rock beats Scissors."
+        computerScore++;
     }
-    if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
-        return "You win! Scissors beats Paper."
+    else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
+        return "You win! Scissors beats Paper.";
+        playerScore++;
     }
 }
 
@@ -75,8 +91,14 @@ playRound(getPlayerChoice(), getComputerChoice(1, 3));
 
 /* Write a NEW function called game(). 
 Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end. */
-
-    for (let i=1; i<=5; i++) {
-        playRound (i);
+function game(){
+    if (computerScore > playerScore) {
+        return `You lose! The computer beat you in ${computerScore} rounds.`
+    } else if (playerScore > computerScore) {
+        return `You win! You beat the computer in ${playerScore} rounds.`
+    } else if (computerScore === playerScore) {
+        return "This round was a tie!"
     }
+}
+
 
