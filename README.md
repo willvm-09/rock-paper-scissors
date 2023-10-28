@@ -26,4 +26,7 @@ After several tries I finally managed to write code that worked. I tested it on 
 The third part involved writing code that asks the user for input. The result is then used to play one round of the game. 
 This allowed me to write a function called "getPlayerChoice" that prompts the user for a response first before the computer takes its pick. 
 
+The fourth part involved writing a function called 'game' that plays a 5 round game, keeps score, and reports a winner or loser at the end.
+After much frutiful effort and thought, I managed to write code that works for this last part. 
+
 

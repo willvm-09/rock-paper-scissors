@@ -1,7 +1,8 @@
-// Begin with a function called getComputerChoice that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
+/* Begin with a function called getComputerChoice that will 
+randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’*/
 
-function getComputerChoice (min, max) {
-    const randomComputerChoice = Math.floor(Math.random() * (max - min + 1) + min);
+function getComputerChoice () {
+    const randomComputerChoice = Math.floor(Math.random() * 3) + 1;
 
     if (randomComputerChoice === 1) {
         return "Rock";
@@ -16,14 +17,13 @@ function getComputerChoice (min, max) {
 
 }
 
-getComputerChoice(1, 3);
-
-//Create a similar function for the player. Use prompt() to get input from the user. 
+/*Create a similar function for the player. 
+Use prompt() to get input from the user. */
 
 function getPlayerChoice () {
     const playerChoice = prompt ("Rock, Paper, or Scissors?");
     
-    if (playerChoice.toLowerCase() === "rock" ) {
+    if (playerChoice.toLowerCase() === "rock") {
         return "Rock";
     }
     else if (playerChoice.toLowerCase() === "paper") {
@@ -32,73 +32,79 @@ function getPlayerChoice () {
     else if (playerChoice.toLowerCase() === "scissors") {
         return "Scissors";
     } 
-    else {
-        return "You must type either Rock, Paper or Scissors"
-    }
 }
-getPlayerChoice();
 
-/* Write a function that plays a single round of Rock, Paper, Scissors. 
-The function should take two parameters - the playerSelection and computerSelection - 
-and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" 
-Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation). */
+/* Write a function that plays a single round of Rock, Paper, Scissors.*/
 
 function playRound (playerSelection, computerSelection) {
 
-    let computerScore = 0;
-    let playerScore = 0;
-    let tieScore = 0;
-
     if (playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") {
         return "You both picked Rock, it's a tie!";
-        tieScore++;
     }
     else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
         return "You both picked Paper, it's a tie!";
-        tieScore++;
     }
     else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") {
         return "You both picked Scissors, it's a tie!";
-        tieScore++;
     }
     else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
         return "You lose! Paper beats Rock.";
-        computerScore++;
     }
     else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
         return "You win! Rock beats Scissors.";
-        playerScore++;
     }
     else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
         return "You win! Paper beats Rock.";
-        playerScore++;
     }
     else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
         return "You lose! Scissors beats Paper.";
-        computerScore++;
     }
     else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
         return "You lose! Rock beats Scissors."
-        computerScore++;
     }
     else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
         return "You win! Scissors beats Paper.";
-        playerScore++;
+    } 
     }
-}
 
-playRound(getPlayerChoice(), getComputerChoice(1, 3));
 
-/* Write a NEW function called game(). 
-Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end. */
+
+/*Write a NEW function called game(). 
+Use the previous function inside of this one to play 
+a 5 round game that keeps score and reports a winner or loser at the end.*/
+
 function game(){
-    if (computerScore > playerScore) {
-        return `You lose! The computer beat you in ${computerScore} rounds.`
-    } else if (playerScore > computerScore) {
-        return `You win! You beat the computer in ${playerScore} rounds.`
-    } else if (computerScore === playerScore) {
-        return "This round was a tie!"
+
+    for (let i=1; i <= 5; i++) {
+
+        let result = playRound(getPlayerChoice(), getComputerChoice());
+
+        let computerScore = 0;
+        let playerScore = 0;
+        let tieScore = 0;
+
+         if (result === "You both picked Rock, it's a tie!" || result === "You both picked Paper, it's a tie!" || result === "You both picked Scissors, it's a tie!") {
+            tieScore++;
+         } 
+         else if (result === "You win! Rock beats Scissors." || result === "You win! Paper beats Rock." || result ===  "You win! Scissors beats Paper.") {
+            playerScore++;
+         }
+         else if (result === "You lose! Paper beats Rock." || result === "You lose! Scissors beats Paper." || result ===  "You lose! Rock beats Scissors.") {
+            computerScore++;
+         }
+        }
+
+    if (computerScore === 1 && tieScore === 4 || computerScore === 2 && tieScore === 3 || computerScore === 3 && tieScore === 2 
+        || computerScore === 4 && tieScore === 1|| computerScore === 5 && tieScore === 0 || computerScore > playerScore) {
+            return "You lose! You lost the game to a computer!";
+        }
+    else if (playerScore === 1 && tieScore === 4 || playerScore === 2 && tieScore === 3 || playerScore === 3 && tieScore === 2 ||
+        playerScore === 4 && tieScore === 1 || playerScore > computerScore) {
+            return "You win! You beat the Computer."
+        }
+    else if ((computerScore === 3 && playerScore === 3) || (tieScore === 5)) {
+        return "It's a tie!"
     }
 }
-
-
+    const result = game();
+    console.log(result);
