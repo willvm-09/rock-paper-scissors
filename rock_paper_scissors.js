@@ -64,7 +64,10 @@ function playRound (playerSelection, computerSelection) {
     }
     else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
         return "You win! Scissors beats Paper.";
-    } 
+    }
+    else {
+        return "Type only Rock, Paper, or Scissors."
+    }
     }
 
 
@@ -96,15 +99,15 @@ function game(){
 
     if (computerScore === 1 && tieScore === 4 || computerScore === 2 && tieScore === 3 || computerScore === 3 && tieScore === 2 
         || computerScore === 4 && tieScore === 1|| computerScore === 5 && tieScore === 0 || computerScore > playerScore) {
-            return "You lose! You lost the game to a computer!";
+            return `You lose! Computer Score: ${computerScore} Player Score: ${playerScore} Tie Score: ${tieScore}`;
         }
     else if (playerScore === 1 && tieScore === 4 || playerScore === 2 && tieScore === 3 || playerScore === 3 && tieScore === 2 ||
         playerScore === 4 && tieScore === 1 || playerScore > computerScore) {
-            return "You win! You beat the Computer."
+            return `You win! Player Score: ${playerScore} Computer Score: ${computerScore} Tie Score: ${tieScore}.` 
         }
     else if ((computerScore === 3 && playerScore === 3) || (tieScore === 5) || (computerScore === 2 && playerScore === 2 && tieScore === 1) || 
     (playerScore === 1 && computerScore === 1 && tieScore === 3)) {
-        return "It's a tie!"
+        return `It's a tie! Player Score: ${playerScore} Computer Score: ${computerScore} Tie Score: ${tieScore}. `
     }
 }
     const result = game();
