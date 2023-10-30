@@ -73,15 +73,15 @@ function playRound (playerSelection, computerSelection) {
 Use the previous function inside of this one to play 
 a 5 round game that keeps score and reports a winner or loser at the end.*/
 
+        let computerScore = 0;
+        let playerScore = 0;
+        let tieScore = 0;
+
 function game(){
 
     for (let i=1; i <= 5; i++) {
 
         let result = playRound(getPlayerChoice(), getComputerChoice());
-
-        let computerScore = 0;
-        let playerScore = 0;
-        let tieScore = 0;
 
          if (result === "You both picked Rock, it's a tie!" || result === "You both picked Paper, it's a tie!" || result === "You both picked Scissors, it's a tie!") {
             tieScore++;
@@ -102,9 +102,11 @@ function game(){
         playerScore === 4 && tieScore === 1 || playerScore > computerScore) {
             return "You win! You beat the Computer."
         }
-    else if ((computerScore === 3 && playerScore === 3) || (tieScore === 5)) {
+    else if ((computerScore === 3 && playerScore === 3) || (tieScore === 5) || (computerScore === 2 && playerScore === 2 && tieScore === 1) || 
+    (playerScore === 1 && computerScore === 1 && tieScore === 3)) {
         return "It's a tie!"
     }
 }
     const result = game();
     console.log(result);
+
