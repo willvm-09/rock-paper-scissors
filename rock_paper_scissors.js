@@ -105,7 +105,7 @@ function game(){
         playerScore === 4 && tieScore === 1 || playerScore > computerScore) {
             return `You win! Player Score: ${playerScore} Computer Score: ${computerScore} Tie Score: ${tieScore}.` 
         }
-    else if ((computerScore === 3 && playerScore === 3) || (tieScore === 5) || (computerScore === 2 && playerScore === 2 && tieScore === 1) || 
+    else if ((tieScore === 5) || (computerScore === 2 && playerScore === 2 && tieScore === 1) || 
     (playerScore === 1 && computerScore === 1 && tieScore === 3)) {
         return `It's a tie! Player Score: ${playerScore} Computer Score: ${computerScore} Tie Score: ${tieScore}. `
     }
