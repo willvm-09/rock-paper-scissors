@@ -106,6 +106,10 @@ function game() {
 
 // DOM Manipulation
 
+    let computerScore = 0;
+    let playerScore = 0;        
+    let tieScore = 0;
+
     const chooseButtons = document.querySelectorAll(".choiceBtn");
     chooseButtons.forEach(button => button.addEventListener("click", () => {
 
@@ -120,10 +124,6 @@ function game() {
         let finalResult = playRound(player, computer);
         let resultText = document.querySelector("#resultText");
         resultText.textContent = `Result: ${finalResult}`;
-
-    let computerScore = 0;
-    let playerScore = 0;        
-    let tieScore = 0;
 
         if (finalResult === "You both picked Rock, it's a tie!" || finalResult === "You both picked Paper, it's a tie!" || finalResult === "You both picked Scissors, it's a tie!") {
             tieScore++;
