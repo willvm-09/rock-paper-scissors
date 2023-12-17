@@ -6,17 +6,23 @@
     </head>
     <body>
         <h1>Rock, Paper, Scissors Game</h1>
-        <h2>A Game of 5 Rounds</h2>
+        
 
         <div id = "playerDiv">
             <h2 class="gameText" id="playerChoice">Player:</h2>
             <h2 class="gameText" id="computerChoice">Computer:</h2>
+            <h2 class="gameText" id="resultText">Result:</h2>
             
             <button class="choiceBtn">Rock</button>
             <button class="choiceBtn">Paper</button>
             <button class="choiceBtn">Scissors</button>
 
-            <h2 class="gameText" id="resultText">Result:</h2>
+
+            <div id = "score">
+            <p id="computerScore">Computer:</p> <span id= "compTally">0</span>
+            <p id="playerScore">Player:</p> <span id= "playerTally">0</span>
+            <p id="tieScore">Tie Score:</p> <span id= "tieTally">0</span>
+            </div>
         </div>
         
         <script src="rock_paper_scissors.js"></script>

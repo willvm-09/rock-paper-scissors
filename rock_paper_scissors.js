@@ -67,33 +67,31 @@ function playRound (playerSelection, computerSelection) {
     }
     }
 
-
 /*Write a NEW function called game(). 
 Use the previous function inside of this one to play 
 a 5 round game that keeps score and reports a winner or loser at the end.*/
 
+/* let computerScore = 0;
+let playerScore = 0;        
+let tieScore = 0;
 
 function game() {
 
-        let computerScore = 0;
-        let playerScore = 0;
-        let tieScore = 0;
+    let result = playRound(player, getComputerChoice());
 
-        const result = playRound(player, computer);
-
-         for (let i = 1; i <= 5; i++ ) {
-
-         if (result === "You both picked Rock, it's a tie!" || result === "You both picked Paper, it's a tie!" || result === "You both picked Scissors, it's a tie!") {
-            tieScore++;
+    if (result === "You both picked Rock, it's a tie!" || result === "You both picked Paper, it's a tie!" || result === "You both picked Scissors, it's a tie!") {
+        tieScore++;
          } 
-         else if (result === "You win! Rock beats Scissors." || result === "You win! Paper beats Rock." || result ===  "You win! Scissors beats Paper.") {
-            playerScore++;
-         }
-         else if (result === "You lose! Paper beats Rock." || result === "You lose! Scissors beats Paper." || result ===  "You lose! Rock beats Scissors.") {
-            computerScore++;
+
+    if (result === "You win! Rock beats Scissors." || result === "You win! Paper beats Rock." || result ===  "You win! Scissors beats Paper.") {
+        playerScore++;
          }
 
-    if (computerScore === 1 && tieScore === 4 || computerScore === 2 && tieScore === 3 || computerScore === 3 && tieScore === 2 
+    if (result === "You lose! Paper beats Rock." || result === "You lose! Scissors beats Paper." || result ===  "You lose! Rock beats Scissors.") {
+        computerScore++;
+}
+}
+      if (computerScore === 1 && tieScore === 4 || computerScore === 2 && tieScore === 3 || computerScore === 3 && tieScore === 2 
         || computerScore === 4 && tieScore === 1|| computerScore === 5 && tieScore === 0 || computerScore > playerScore) {
             return `You lose! Computer Score: ${computerScore} Player Score: ${playerScore} Tie Score: ${tieScore}`;
         }
@@ -104,25 +102,48 @@ function game() {
     else if ((tieScore === 5) || (computerScore === 2 && playerScore === 2 && tieScore === 1) || 
     (playerScore === 1 && computerScore === 1 && tieScore === 3)) {
         return `It's a tie! Player Score: ${playerScore} Computer Score: ${computerScore} Tie Score: ${tieScore}. `
-    }
-}
-}
+    } */
 
 // DOM Manipulation
 
     const chooseButtons = document.querySelectorAll(".choiceBtn");
     chooseButtons.forEach(button => button.addEventListener("click", () => {
 
-        const player = button.textContent;
-        const playerChoice = document.querySelector("#playerChoice");
+        let player = button.textContent;
+        let playerChoice = document.querySelector("#playerChoice");
         playerChoice.textContent = `Player: ${player}`;
 
         const computer = getComputerChoice();
-        const computerChoice = document.querySelector("#computerChoice");
+        let computerChoice = document.querySelector("#computerChoice");
         computerChoice.textContent = `Computer: ${computer}`;
 
-        const result = playRound(player, computer);
-        const resultText = document.querySelector("#resultText");
-        resultText.textContent = `Result: ${result}`;
+        let finalResult = playRound(player, computer);
+        let resultText = document.querySelector("#resultText");
+        resultText.textContent = `Result: ${finalResult}`;
+
+    let computerScore = 0;
+    let playerScore = 0;        
+    let tieScore = 0;
+
+        if (finalResult === "You both picked Rock, it's a tie!" || finalResult === "You both picked Paper, it's a tie!" || finalResult === "You both picked Scissors, it's a tie!") {
+            tieScore++;
+            } 
+
+        if (finalResult === "You win! Rock beats Scissors." || finalResult === "You win! Paper beats Rock." || finalResult ===  "You win! Scissors beats Paper.") {
+            playerScore++;
+            }
+
+        if (finalResult === "You lose! Paper beats Rock." || finalResult === "You lose! Scissors beats Paper." || finalResult ===  "You lose! Rock beats Scissors.") {
+            computerScore++;
+            }
+        
+        let computerTally = document.querySelector("#compTally");
+        computerTally.textContent = computerScore;
+        let playerTally = document.querySelector("#playerTally");
+        playerTally.textContent = playerScore;
+        let tieTally = document.querySelector("#tieTally");
+        tieTally.textContent = tieScore;
     }
     ));
+
+        
