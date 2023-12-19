@@ -3,32 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock, Paper, Scissors - JavaScript</title>
+        <link rel="stylesheet" href="rps.css">
     </head>
     <body>
-        <header>Rock, Paper, Scissors Game</header>
+    <div id="game">
+        <header id="header">Rock, Paper, Scissors Game</header>
         <h1>First to Win 5 Rounds</h1>
         
 
-        <div id = "playerDiv">
+        <div class = "playerDiv">
             <h2 class="gameText" id="playerChoice">Player:</h2>
             <h2 class="gameText" id="computerChoice">Computer:</h2>
             <h2 class="gameText" id="resultText">Result:</h2>
-            
+        </div>
+
+        <div class ="buttons">
             <button class="choiceBtn">Rock</button>
             <button class="choiceBtn">Paper</button>
             <button class="choiceBtn">Scissors</button>
-
-    
-            <div id = "score">
-            <p id="computerScore">Computer:</p> <span id= "compTally">0</span>
-            <p id="playerScore">Player:</p> <span id= "playerTally">0</span>
-            <p id="tieScore">Tie Score:</p> <span id= "tieTally">0</span>
-            </div>
-
-            <h3 id="finalResultStatement">Final Result: </h3>
-            <button id="playAgain">Play Again!</button>
         </div>
+    
+        <div id = "scores">
+            <p class="score" id="computerScore">Computer:</p> 
+            <p class="score" id="playerScore">Player:</p> 
+            <p class="score" id="tieScore">Tie Score:</p>
+        </div>
+
+        <div id = "tallies">
+            <span class="tally" id= "compTally">0</span>
+            <span class="tally" id= "playerTally">0</span>
+            <span class="tally" id= "tieTally">0</span>
+        </div>
+
+        <h3 id="finalResultStatement">Final Result: </h3>
+        <button id="playAgain">Play Again!</button>
+    </div>
         
         <script src="rock_paper_scissors.js"></script>
+
     </body>
 </html>

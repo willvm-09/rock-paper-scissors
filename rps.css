@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&display=swap');
+
+* {
+    font-family: Asap, sans-serif;
+}
+
+#game {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+#header {
+    text-align: center;
+    background-color: white;
+    padding: 20px; 
+    font-size: 35px;
+    font-weight: 600;
+    width: 100%
+}
+
+body {
+    background-color: #24272e;
+}
+
+h1 {
+    color: white;
+    padding: 20px;
+}
+
+.playerDiv {
+    color: white;
+    background-color:#B83737;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 600px; 
+    padding: 20px;
+}
+
+.buttons {
+    padding: 20px;
+    display: flex;
+}
+
+.choiceBtn {
+    height: 60px;
+    width: 150px;
+    margin: 0 25px;
+    font-size: 30px;
+    border-radius: 15px;
+}
+
+#scores {
+    display: flex;
+    color: white;
+    font-size: 25px;
+}
+
+.score {
+    margin: 15px 25px;
+}
+
+.tally {
+    margin: 15px 60px;
+    font-size: 25px;
+    color: white;
+}
+
+h3 {
+    color: white;
+    border: 2px solid white;
+    height: 30px;
+    width: 400px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+#playAgain {
+    height: 60px;
+    width: 150px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+}
