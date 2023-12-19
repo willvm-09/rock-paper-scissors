@@ -168,6 +168,8 @@ function game() {
         finalResultStatement.textContent = `Final Result: ${finalScoreResult}`;
         disableButtons();
 
+        let playAgain = document.querySelector("#playAgain");
+        playAgain.addEventListener("click", () => location.reload());
     }));
 
 
