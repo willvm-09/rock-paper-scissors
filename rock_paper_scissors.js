@@ -104,13 +104,15 @@ function game() {
         return `It's a tie! Player Score: ${playerScore} Computer Score: ${computerScore} Tie Score: ${tieScore}. `
     } */
 
+//Function for disabling buttons after a game of 5 rounds
+
 // DOM Manipulation
+        let computerScore = 0;
+        let playerScore = 0;        
+        let tieScore = 0;
+    
 
-    let computerScore = 0;
-    let playerScore = 0;        
-    let tieScore = 0;
-
-    const chooseButtons = document.querySelectorAll(".choiceBtn");
+    let chooseButtons = document.querySelectorAll(".choiceBtn");
     chooseButtons.forEach(button => button.addEventListener("click", () => {
 
         let player = button.textContent;
@@ -135,15 +137,40 @@ function game() {
 
         if (finalResult === "You lose! Paper beats Rock." || finalResult === "You lose! Scissors beats Paper." || finalResult ===  "You lose! Rock beats Scissors.") {
             computerScore++;
-            }
-        
+        }
+
         let computerTally = document.querySelector("#compTally");
         computerTally.textContent = computerScore;
         let playerTally = document.querySelector("#playerTally");
         playerTally.textContent = playerScore;
         let tieTally = document.querySelector("#tieTally");
         tieTally.textContent = tieScore;
-    }
-    ));
+
+        function finalScore (){
+            if (playerScore === 5) {
+                return "Game Over! You Won.";
+            }
+            else if (computerScore === 5) {
+                return "Game Over! You lost.";
+            }
+            else if(playerScore < 5 && computerScore < 5) {
+                finalResultStatement.textContent = "";
+            }
+            } 
+
+        function disableButtons (){
+            chooseButtons.forEach(button => {button.disabled = true});
+
+        }
+
+        let finalScoreResult = finalScore();
+        let finalResultStatement = document.querySelector("#finalResultStatement");
+        finalResultStatement.textContent = `Final Result: ${finalScoreResult}`;
+        disableButtons();
+
+    }));
+
+
+
 
         
